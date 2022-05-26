@@ -1,6 +1,7 @@
 package com.github.yanzord;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,7 +16,7 @@ public class DummyController {
     }
 
     @PostMapping
-    public Dummy sendMessage(Dummy dummy) {
+    public Dummy sendMessage(@RequestBody Dummy dummy) {
         return producer.sendMessage(dummy);
     }
 }

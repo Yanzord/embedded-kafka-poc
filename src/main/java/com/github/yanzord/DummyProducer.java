@@ -2,24 +2,31 @@ package com.github.yanzord;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cloud.stream.annotation.EnableBinding;
-import org.springframework.messaging.support.GenericMessage;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.KafkaHeaders;
+import org.springframework.messaging.Message;
+import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.stereotype.Component;
 
 @Component
-@EnableBinding(DummyBinders.class)
 public class DummyProducer {
 
-    private final DummyBinders channel;
-
     private static final Logger LOGGER = LoggerFactory.getLogger(DummyProducer.class);
+    private static final String TOPIC = "dummy-topic-v1";
 
-    public DummyProducer(DummyBinders channel) {
-        this.channel = channel;
+    private final KafkaTemplate<String, Object> template;
+
+    public DummyProducer(KafkaTemplate<String, Object> template) {
+        this.template = template;
     }
 
     public Dummy sendMessage(Dummy dummy) {
-        channel.dummyEventOutputChannel().send(new GenericMessage<>(dummy));
+        Message<?> message = MessageBuilder.withPayload(dummy)
+                .setHeader(KafkaHeaders.TOPIC, TOPIC)
+                .build();
+
+        template.send(message);
+
         LOGGER.info("Evento dummy enviado: {}", dummy);
         return dummy;
     }

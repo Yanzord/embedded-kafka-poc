@@ -1,4 +1,3 @@
-wiremock.server.port: 0
 spring:
   cache:
     type: NONE
