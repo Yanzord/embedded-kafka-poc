@@ -21,7 +21,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Tag("slow")
 @DirtiesContext
-@ActiveProfiles({"kafka", "test"})
+@ActiveProfiles({"kafka"})
 @SpringBootTest(classes = { Application.class, KafkaTestConfig.class })
 @EmbeddedKafka(partitions = 1, brokerProperties = { "listeners=PLAINTEXT://" + KafkaIntegrationTest.BOOTSTRAP_SERVERS, "port=9093" })
 @ExtendWith(SpringExtension.class)

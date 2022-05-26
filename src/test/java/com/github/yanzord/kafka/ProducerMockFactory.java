@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @TestComponent
 public class ProducerMockFactory {
 
-    private Map<String, ProducerMock> messagesByTopic;
+    private final Map<String, ProducerMock> messagesByTopic;
 
     public ProducerMockFactory() {
         this.messagesByTopic = new ConcurrentHashMap<>();
@@ -24,8 +24,8 @@ public class ProducerMockFactory {
     public static Map<String, Object> producerProperties() {
         Map<String, Object> properties = new HashMap<>();
         properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaIntegrationTest.BOOTSTRAP_SERVERS);
-        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
-        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
+        properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
+        properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.put(ProducerConfig.ACKS_CONFIG, "all");
         return properties;
     }

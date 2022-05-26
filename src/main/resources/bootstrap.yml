@@ -6,9 +6,6 @@ spring:
     name: embedded-kafka-poc
   cloud:
     stream:
-      kafka:
-        binder:
-          autoCreateTopics: true
       bindings:
         sendDummyEvent:
           destination: dummy-topic-v1

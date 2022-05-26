@@ -30,7 +30,6 @@ public class DummyConsumerTest {
 
     @Test
     void deveConsumirMensagem() {
-
         producerMock = producerMockFactory.forTopic("dummy-topic-v1");
 
         String id = "xyz";

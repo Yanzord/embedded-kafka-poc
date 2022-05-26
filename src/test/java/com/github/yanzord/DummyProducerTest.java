@@ -21,7 +21,7 @@ public class DummyProducerTest {
     private ConsumerMock consumerMock;
 
     @Test
-    void deveProduzirMensagem(){
+    void deveProduzirMensagem() {
         consumerMock = consumerMockFactory.forTopic("dummy-topic-v1");
 
         Dummy dto = new Dummy();

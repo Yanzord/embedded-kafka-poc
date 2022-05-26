@@ -1,4 +1,3 @@
-wiremock.server.port: 0
 spring:
   cache:
     type: NONE
@@ -10,3 +9,8 @@ spring:
       properties:
         'max.block.ms': 3000
         'request.timeout.ms': 3000
+  cloud:
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9093
