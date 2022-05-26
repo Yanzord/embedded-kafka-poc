@@ -1,0 +1,12 @@
+wiremock.server.port: 0
+spring:
+  cache:
+    type: NONE
+  kafka:
+    bootstrap-servers: localhost:9093
+    properties:
+      security.protocol: PLAINTEXT
+    producer:
+      properties:
+        'max.block.ms': 3000
+        'request.timeout.ms': 3000

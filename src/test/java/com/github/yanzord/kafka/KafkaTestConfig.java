@@ -9,4 +9,9 @@ public class KafkaTestConfig {
         return new ConsumerMockFactory();
     }
 
+    @Bean
+    public ProducerMockFactory producerMockFactory() {
+        return new ProducerMockFactory();
+    }
+
 }

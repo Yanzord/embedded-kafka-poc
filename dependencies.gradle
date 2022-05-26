@@ -1,9 +1,11 @@
 dependencies {
+    implementation platform('org.springframework.cloud:spring-cloud-dependencies:Hoxton.SR12')
+
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
 
     implementation("org.springframework.boot:spring-boot-starter-web")
 
-    implementation group: 'org.springframework.cloud', name: 'spring-cloud-stream-binder-kafka', version: '3.0.13.RELEASE'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-stream-binder-kafka'
 
     implementation("org.springframework.cloud:spring-cloud-stream")
     implementation("org.springframework.cloud:spring-cloud-starter-stream-kafka")
